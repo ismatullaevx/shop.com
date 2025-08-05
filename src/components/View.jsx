@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router';
-import StarRating from './StarRating';
-
+import { StarRating } from './star';
 
 const View = () => {
     const location = useLocation()

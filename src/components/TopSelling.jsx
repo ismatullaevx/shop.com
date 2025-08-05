@@ -5,8 +5,7 @@ import orn2Shirt from '../assets/imgs/orange2Shirt.png'
 import star from '../assets/icons/star.png'
 import star2 from '../assets/icons/star3.png'
 import { useNavigate } from 'react-router'
-import StarRating from './StarRating'
-
+import { StarRating } from './star'
 export default function TopSelling({ search }) {
     const navigate = useNavigate()
     const products = [

@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { BiCheck } from 'react-icons/bi';
-import StarRating from './StarRating';
-
+import { StarRating } from './star';
 const Customer = () => {
     return (
         <div className=' px-[120px]'>

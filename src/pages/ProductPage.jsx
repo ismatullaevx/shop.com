@@ -4,11 +4,11 @@ import "keen-slider/keen-slider.min.css";
 import Tshirt from "../assets/imgs/Tshirt.png";
 import Tshirt2 from "../assets/imgs/Tshirt.png";
 import Tshirt3 from "../assets/imgs/Tshirt.png";
+import { StarRating } from "../components/star";
 import { BiCheck, BiMinus, BiPlus } from "react-icons/bi";
 import { NavLink, useLocation, useParams } from "react-router";
 import Reviews from "../components/Reviews";
 import Detail from "../components/Detail";
-import StarRating from "../components/StarRating";
 
 
 
@@ -95,7 +95,6 @@ export default function ProductPage() {
                                             className="w-full h-full object-contain"
                                         />
                                     </div>
-                                    
                                 ))}
                             </div>
                         )}
