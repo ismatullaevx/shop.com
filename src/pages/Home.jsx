@@ -9,11 +9,11 @@ import TopSelling from "../components/TopSelling";
 
 
 
-const Home = ({search}) => {
-   
+const Home = ({ search }) => {
+
     return (
         <div>
-           
+
             <HomeStart />
             <ProductSections search={search} />
             <TopSelling search={search} />
