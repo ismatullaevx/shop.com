@@ -25,6 +25,7 @@ export default function ProductSections({ search }) {
             colors: ["#4F4631", "#314F4A", "#31344F"],
             buttons: ["Small", "Medium", "Large", "X-Large"]
         },
+
         {
             id: 2,
             img: jeans,
