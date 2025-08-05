@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+.bgImg {
+    background-image: url(./assets/imgs/casual.png);
+    width: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    background-image: url;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 40px;
+}
+
+.bgImg2 {
+    background-image: url(./assets/imgs/formal.png);
+    width: 900px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    background-image: url;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 40px;
+}
+
+.bgImg3 {
+    background-image: url(./assets/imgs/party.png);
+    width: 900px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    background-image: url;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.bgImg4 {
+    background-image: url(./assets/imgs/gym.png);
+    width: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    background-image: url;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 20px;
+}
+/* 
+.style-module_emptyIcons__Bg-FZ {
+    display: flex !important;
+} */
+ .style-module_simpleStarRating__nWUxf{
+     display: flex !important;
+ }
+ 
