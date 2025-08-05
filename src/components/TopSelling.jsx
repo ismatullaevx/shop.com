@@ -1,0 +1,114 @@
+import greenSh from '../assets/imgs/greenShirt.png'
+import blackJ from '../assets/imgs/blackJeans.png'
+import shortJ from '../assets/imgs/shortJeans.png'
+import orn2Shirt from '../assets/imgs/orange2Shirt.png'
+import star from '../assets/icons/star.png'
+import star2 from '../assets/icons/star3.png'
+import { useNavigate } from 'react-router'
+import { StarRating } from './star'
+export default function TopSelling({ search }) {
+    const navigate = useNavigate()
+    const products = [
+        {
+            id: 1,
+            img: greenSh,
+            txt: "VERTICAL STRIPED SHIRT",
+            cost: "$212",
+            icon: star,
+            icon2: star2
+        },
+        {
+            id: 2,
+            img: orn2Shirt,
+            txt: "COURAGE GRAPHIC T-SHIRT",
+            cost: "$145",
+            icon: star,
+            icon2: star2
+        },
+        {
+            id: 3,
+            img: shortJ,
+            txt: "LOOSE FIT BERMUDA SHORTS",
+            cost: "$80",
+            icon: star,
+            icon2: star2
+        },
+        {
+            id: 4,
+            img: blackJ,
+            txt: "FADED SKINNY JEANS",
+            cost: "$210",
+            icon: star,
+            icon2: star2
+        },
+        {
+            id: 5,
+            img: shortJ,
+            txt: "SLEEVE STRIPED T-SHIRT",
+            cost: "$130",
+            icon: star,
+            icon2: star2
+        },
+        {
+            id: 6,
+            img: greenSh,
+            txt: "SLEEVE STRIPED T-SHIRT",
+            cost: "$130",
+            icon: star,
+            icon2: star2
+        },
+        {
+            id: 7,
+            img: orn2Shirt,
+            txt: "SLEEVE STRIPED T-SHIRT",
+            cost: "$130",
+            icon: star,
+            icon2: star2
+        },
+        {
+            id: 8,
+            img: orn2Shirt,
+            txt: "SLEEVE STRIPED T-SHIRT",
+            cost: "$130",
+            icon: star,
+            icon2: star2
+        },
+
+    ]
+
+    const filteredProducts = products.filter(products =>
+        products.txt.toLowerCase().includes(search.toLowerCase())
+    )
+
+
+    const handleSendDate = (products) => {
+        navigate('/viewAll', { state: products })
+        console.log("press");
+
+    }
+    return (
+        <div>
+            <h1 className=' text-[48px] font-[900] text-center py-[60px] '>TOP SEELING</h1>
+            {filteredProducts.length <= 0 ? <p className='text-xl text-center text-red-600 my-10'>Products not found</p> : <div className=' grid grid-cols-4 py-[20px] px-[120px] '>
+                {filteredProducts.slice(0, 4).map((item) => (
+                    <div key={item.id} className=''>
+                        <img src={item.img} alt="" className=' rounded-[20px] w-[400px]' />
+                        <p className=' text-[27px] font-bold mt-2'>{item.txt}</p>
+                        <div className=' flex items-center gap-2'>
+                            <StarRating />
+                        </div>
+                        <p className=' text-[24px] font-bold'> {item.cost}</p>
+
+                    </div>
+                ))}
+            </div>}
+            <div className=' flex items-center justify-center mt-[20px]'>
+                <button onClick={() => handleSendDate(products)} className=' border-1 border-black/10 pb-[16px] pt-[16px] pl-[54px] pr-[54px] text-[16px] font-medium rounded-[62px]'>
+                    View All
+                </button>
+            </div>
+
+
+        </div>
+    )
+}
