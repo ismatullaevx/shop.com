@@ -3,7 +3,7 @@ import { BiCheck, BiDotsHorizontal, BiFilter, BiFilterAlt } from 'react-icons/bi
 
 
 import CreatableSelect from 'react-select/creatable';
-import { StarRating } from './star';
+import StarRating from './StarRating';
 
 const colourOptions = [{ value: 'chocolate', label: 'Chocolate' },
 { value: 'strawberry', label: 'Strawberry' },

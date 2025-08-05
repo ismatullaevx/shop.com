@@ -6,11 +6,14 @@ import shirt from '../assets/imgs/shirt.png'
 import ornShirt from '../assets/imgs/orangeShirt.png'
 import star from '../assets/icons/star.png'
 import star2 from '../assets/icons/star3.png'
-import { NavLink, useNavigate } from 'react-router'
-import { StarRating } from './star' // Убедись, что путь к StarRating правильный
+
+import StarRating from './StarRating'
+import { useNavigate } from 'react-router'
+
 
 export default function ProductSections({ search }) {
     const navigate = useNavigate()
+
 
 
     const products = [
@@ -85,11 +88,9 @@ export default function ProductSections({ search }) {
 
 
     ]
-
     const filteredProducts = products.filter(product =>
         product.txt.toLowerCase().includes(search.toLowerCase())
     );
-
     const handleSendDate = (products) => {
         navigate('/viewAll', { state: products })
         console.log("press");
@@ -104,8 +105,6 @@ export default function ProductSections({ search }) {
             {filteredProducts.length <= 0 ? <p className='text-xl text-center text-red-600 my-10'>Products not found</p> : <div className=' grid grid-cols-4 py-[20px] px-[120px] '>
                 {filteredProducts.slice(0, 4).map((item) => (
                     <button onClick={() => handleOpen(item.id)} key={item.id} className=''>
-
-
                         <img src={item.img} alt="" className=' rounded-[20px] w-[400px]' />
 
                         <p className=' text-[27px] font-bold mt-2'>{item.txt}</p>

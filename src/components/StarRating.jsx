@@ -1,7 +1,8 @@
 // StarRating.jsx
 import React, { useState } from 'react'
 
-export function StarRating({ product }) {
+export default function StarRating
+({ product }) {
     const [rating, setRating] = useState(0)
     const [hover, setHover] = useState(0);
 
