@@ -6,22 +6,29 @@ import Tshirt2 from "../assets/imgs/Tshirt.png";
 import Tshirt3 from "../assets/imgs/Tshirt.png";
 import { StarRating } from "../components/star";
 import { BiCheck, BiMinus, BiPlus } from "react-icons/bi";
-import { NavLink, useLocation, useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import Reviews from "../components/Reviews";
 import Detail from "../components/Detail";
+import CalculatedDiscount from "../components/CalculatedDiscount";
 
 
 
 
 export default function ProductPage() {
+
     const images = [Tshirt, Tshirt2, Tshirt3];
     const [activeTab, setActiveTab] = useState("Rating&Reviews");
     const [currentSlide, setCurrentSlide] = useState(0);
     const [mounted, setMounted] = useState(false);
+
     const location = useLocation()
     const products = location.state
+
     const { id } = useParams();
+
+
     const product = products.find((p) => p.id === parseInt(id));
+
     const [selectColor, setSelectColor] = useState(product.colors[0])
     const [selectBtn, setSelectBtn] = useState(product.buttons[0])
     const [number, setNumber] = useState(0)
@@ -46,7 +53,6 @@ export default function ProductPage() {
             return <p>Bu yerda barcha to‘liq tafsilotlar va tavsiflar mavjud.</p>;
         }
     };
-
     const goToSlide = (idx) => {
         instanceRef.current?.moveToIdx(idx);
     };
@@ -57,6 +63,13 @@ export default function ProductPage() {
     }
     const minusBtn = () => {
         setNumber(number - 1)
+
+    }
+
+    const navigate = useNavigate()
+    const handleSendDate = (products) => {
+        navigate('/basket', { state: products })
+        console.log("press");
 
     }
     return (
@@ -116,11 +129,9 @@ export default function ProductPage() {
                 <div className="`">
                     <h1 className=" text-[40px] font-bold mt-[10px]">{product.txt}</h1>
                     <StarRating />
-                    <div className=" flex items-center gap-5 mt-[10px]">
-                        <h1 className=" text-[32px] font-bold">$260</h1>
-                        <s className=" text-black/30 text-[32px] font-bold">$300</s>
-                        <button className=" text-[#FF3333] text-[16px] font-medium rounded-[62px] bg-[#F0F0F0] pl-[14px] pt-[6px] pb-[6px] pr-[14px]">-40%</button>
-                    </div>
+                    <CalculatedDiscount prise={product.cost} discount={20} />
+
+
                     <h1 className=" text-[16px]  mt-[10px]  w-[62%]">
                         {product.descrition}
                     </h1>
@@ -157,25 +168,19 @@ export default function ProductPage() {
                             <h1>{number}</h1>
                             <button onClick={plusBtn}> <BiPlus /> </button>
                         </button>
-                        <button className=" text-white bg-black rounded-[62px] font-medium pl-[54px] pr-[54px] pt-[16px] pb-[16px] w-full" > Add to Cart</button>
+                        <button onClick={() => handleSendDate(products)} className=" text-white bg-black rounded-[62px] font-medium pl-[54px] pr-[54px] pt-[16px] pb-[16px] w-full" > Add to Cart</button>
                     </div>
 
                 </div>
             </div>
-
             <div className=" flex items-center justify-between  mt-[60px]">
                 <button style={{ borderBottom: activeTab === "ProductDetails" ? "2px solid black" : "", }} className="text-[22px]  w-full border-b-1 border-black/10 " onClick={() => setActiveTab("ProductDetails")}>Product Details</button>
                 <button style={{ borderBottom: activeTab === "Rating&Reviews" ? "2px solid black" : "", }} className="text-[22px] w-full border-b-1 border-black/10" onClick={() => setActiveTab("Rating&Reviews")}>Rating & Reviews</button>
                 <button style={{ borderBottom: activeTab === "FAQs" ? "2px solid black" : "", }} className="text-[22px] w-full  border-b-1 border-black/10" onClick={() => setActiveTab("FAQs")}>FAQs</button>
-
-                {/* <h1 className=" text-[22px] border-b-1 w-full text-center border-black/10  text-black/60"></h1>
-                <h1 className=" text-[22px]  border-b-2 w-full  text-center"></h1>
-                <h1 className=" text-[22px]  border-b-1 w-full  text-center  border-black/10  text-black/60"></h1> */}
             </div>
             <div className=" ">
                 {renderContent()}
             </div>
-        </div>
+        </div >
     );
 }
-

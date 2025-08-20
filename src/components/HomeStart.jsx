@@ -6,7 +6,36 @@ import prada from "../assets/icons/pradaLogo.png"
 import gucci from "../assets/icons/gucciLogo.png"
 import calvin from "../assets/icons/calvinLogo.png"
 import versace from "../assets/icons/versaceLogo.png"
+import { useEffect, useState } from "react"
+
+
 export default function HomeStart() {
+
+
+    const [count, setCount] = useState(0);
+
+
+    useEffect(() => {
+        // 1. `setInterval` natijasini (ID'sini) o'zgaruvchiga saqlaymiz.
+        const intervalId = setInterval(() => {
+
+            // 2. Qiymatni yangilashda shart tekshiramiz.
+            // Bu yerda modulo (%) operatoridan foydalanish eng qulay usul.
+            setCount(prevCount => (prevCount + 1) % 60);
+
+        }, 1000);
+
+        // 3. useEffect'dan "tozalash funksiyasi"ni qaytaramiz.
+        // Bu funksiya komponent ekrandan o'chirilganda (unmount) ishga tushadi.
+        // Bu xotira sizib chiqishining (memory leak) oldini oladi.
+        return () => {
+            clearInterval(intervalId);
+        };
+
+    }, [])
+
+
+
     return (
         <div>
             <div className=' bg-[#F0F0F0] w-full flex justify-center px-[60px]'>
@@ -18,15 +47,15 @@ export default function HomeStart() {
                     <button className=' bg-black text-white pb-[16px] pt-[16px] pl-[54px] pr-[54px] rounded-[64px] mt-5'>Shop Now</button>
                     <div className=' flex gap-[80px] items-center w-full mt-8 '>
                         <div className=''>
-                            <h1 className='text-[50px]  font-bold'>200+</h1>
+                            <h1 className='text-[50px]  font-bold'>{count}+</h1>
                             <p className='text-black/60'>International Brands</p>
                         </div>
                         <div>
-                            <h1 className='text-[50px] font-bold'>2,000+</h1>
+                            <h1 className='text-[50px] font-bold'>{count}+</h1>
                             <p className='text-black/60'>High-Quality Products</p>
                         </div>
                         <div>
-                            <h1 className='text-[50px] font-bold'>30,000+</h1>
+                            <h1 className='text-[50px] font-bold'>{count} +</h1>
                             <p className='text-black/60'>Happy Customers</p>
                         </div>
                     </div>

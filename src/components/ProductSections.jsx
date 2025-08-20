@@ -8,9 +8,13 @@ import star from '../assets/icons/star.png'
 import star2 from '../assets/icons/star3.png'
 import { NavLink, useNavigate } from 'react-router'
 import { StarRating } from './star' // Убедись, что путь к StarRating правильный
+import CalculatedDiscount from './CalculatedDiscount'
 
 export default function ProductSections({ search }) {
+
+
     const navigate = useNavigate()
+
 
 
     const products = [
@@ -18,71 +22,79 @@ export default function ProductSections({ search }) {
             id: 1,
             img: Tshirt,
             txt: "T-SHIRT WITH TAPE DETAILS",
-            cost: "$120",
+            cost: 120,
             icon: star,
             icon2: star2,
             descrition: " This graphic t-shirt which is perfect for any occasion. Crafted from a soft and  breathable fabric, it offers superior comfort and style.",
             colors: ["#4F4631", "#314F4A", "#31344F"],
-            buttons: ["Small", "Medium", "Large", "X-Large"]
+            buttons: ["Small", "Medium", "Large", "X-Large"],
+            discount: 15,
+            basket: "hello"
+
         },
         {
             id: 2,
             img: jeans,
             txt: "SKINNY FIT JEANS",
-            cost: "$240",
+            cost: 240,
             icon: star,
-            icon2: star2
+            icon2: star2,
+            discount: 15
         },
         {
             id: 3,
             img: shirt,
             txt: "CHECKERED SHIRT",
-            cost: "$180",
+            cost: 180,
             icon: star,
-            icon2: star2
+            icon2: star2,
+            discount: 15
         },
         {
             id: 4,
             img: ornShirt,
             txt: "SLEEVE STRIPED T-SHIRT",
-            cost: "$130",
+            cost: 130,
             icon: star,
-            icon2: star2
+            icon2: star2,
+            discount: 15
         },
         {
             id: 5,
             img: ornShirt,
             txt: "SLEEVE STRIPED T-SHIRT",
-            cost: "$130",
+            cost: 130,
             icon: star,
-            icon2: star2
+            icon2: star2,
+            discount: 15
         },
         {
             id: 6,
             img: ornShirt,
             txt: "SLEEVE STRIPED T-SHIRT",
-            cost: "$130",
+            cost: 130,
             icon: star,
-            icon2: star2
+            icon2: star2,
+            discount: 15
         },
         {
             id: 7,
             img: ornShirt,
             txt: "SLEEVE STRIPED T-SHIRT",
-            cost: "$130",
+            cost: 130,
             icon: star,
-            icon2: star2
+            icon2: star2,
+            discount: 15
         },
         {
             id: 8,
             img: ornShirt,
             txt: "SLEEVE STRIPED T-SHIRT",
-            cost: "$130",
+            cost: 130,
             icon: star,
-            icon2: star2
+            icon2: star2,
+            discount: 15
         },
-
-
     ]
 
     const filteredProducts = products.filter(product =>
@@ -103,15 +115,13 @@ export default function ProductSections({ search }) {
             {filteredProducts.length <= 0 ? <p className='text-xl text-center text-red-600 my-10'>Products not found</p> : <div className=' grid grid-cols-4 py-[20px] px-[120px] '>
                 {filteredProducts.slice(0, 4).map((item) => (
                     <button onClick={() => handleOpen(item.id)} key={item.id} className=''>
-
-
                         <img src={item.img} alt="" className=' rounded-[20px] w-[400px]' />
 
-                        <p className=' text-[27px] font-bold mt-2'>{item.txt}</p>
+                        <p className='text-left text-[27px] font-bold mt-2'>{item.txt}</p>
                         <div className='flex items-center gap-2'>
                             <StarRating product={item} />
                         </div>
-                        <p className=' text-[24px] font-bold'> {item.cost}</p>
+                        <CalculatedDiscount prise={item.cost} discount={item.discount} />
 
                     </button>
                 ))}
