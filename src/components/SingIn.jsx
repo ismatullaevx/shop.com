@@ -7,6 +7,7 @@ export default function SingIn() {
   const [isLoginned, setLoginned] = useState(false)
 
   const forgot = () => {
+    
     navigate("/email")
   }
   const handleSubmit = (e) => {

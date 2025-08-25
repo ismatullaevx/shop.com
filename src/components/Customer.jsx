@@ -14,6 +14,7 @@ const Customer = () => {
     })
     return (
         <div className=' px-[120px]'>
+
             <h1 className=' text-[48px] font-bold mt-[20px]'>OUR HAPPY CUSTOMERS</h1>
             <div ref={sliderRef} className="keen-slider">
                 <div className="keen-slider__slide number-slide1   border-1 border-black/10 p-[30px] w-full rounded-[20px]">

@@ -13,11 +13,11 @@ const View = () => {
     return (
         <div>
             <h1 className=' text-[48px] font-[900] text-center py-[60px]'>ALL PRODUCT</h1>
-            <div className=' grid grid-cols-4 py-[20px]  gap-y-10 px-[120px] '>
+            <div className=' grid grid-cols-4 gap-5  px-[120px] items-center justify-between '>
                 {products.map((item) => (
                     <div key={item.id} className=''>
-                        <img src={item.img} alt="" className=' rounded-[20px] w-[400px]' />
-                        <p className=' text-[27px] font-bold mt-2'>{item.txt}</p>
+                        <img src={item.img} alt="" className=' lg:rounded-[20px] lg:w-[400px] lg:h-[400px]' />
+                        <p className='text-left text-[20px] font-bold mt-2'>{item.txt}</p>
                         <div className=' flex items-center gap-2'>
                             <StarRating />
                         </div>

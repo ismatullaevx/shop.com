@@ -4,12 +4,19 @@ import { MdEmail } from 'react-icons/md';
 const Profile = () => {
     const uName = localStorage.getItem("username");
     const savedEmail = localStorage.getItem("userEmail");
+    const uFullName = localStorage.getItem("userFullName");
+    const savedEmail2 = localStorage.getItem("Gender");
+    const savedEmail3 = localStorage.getItem("Language");
+    const savedEmail4 = localStorage.getItem("NickName");
+    const savedEmail5 = localStorage.getItem("Country");
+    const savedEmail6 = localStorage.getItem("SetZona");
     const [fullName, setFullName] = useState("");
-    const [gender, setGender] = useState("");
-    const [language, setLanguage] = useState("");
+    const [gender, setGender] = useState(savedEmail2 || "");
+    const [language, setLanguage] = useState(savedEmail3 || "");
     const [nickName, setNickName] = useState("");
-    const [country, setCountry] = useState("");
-    const [timeZone, setTimeZone] = useState("");
+    const [country, setCountry] = useState(savedEmail5 || "");
+    const [timeZone, setTimeZone] = useState(savedEmail6 || "");
+    const [isDiss, setDiss] = useState(true)
     function profileInf(e) {
         e.preventDefault();
         localStorage.setItem("userFullName", fullName);
@@ -18,9 +25,19 @@ const Profile = () => {
         localStorage.setItem("NickName", nickName);
         localStorage.setItem("Country", country);
         localStorage.setItem("SetZona", timeZone);
+
+
+        if (uFullName === fullName && savedEmail2 === gender && savedEmail3 === language && savedEmail4 === nickName && savedEmail5 === country && savedEmail6 === timeZone) {
+            alert("O'zgardi")
+        }   
+        else {
+            alert('false')
+        }
     }
+    console.log();
+
     return (
-        <div className=' w-full bg-white px-[120px]'>
+        <form onSubmit={(e) => { profileInf(e) }} className=' w-full bg-white px-[120px]'>
             <div className=' flex items-center justify-between'>
                 <div className=' flex items-center  gap-[20px]'>
                     <div>
@@ -32,53 +49,85 @@ const Profile = () => {
                     </div>
                 </div>
                 <div>
-                    <button type='submit' className='py-[15px] px-[50px] bg-black text-white text-[18px] font-[500] rounded-[8px] cursor-pointer'>Edit</button>
+                    {isDiss ? <button onClick={() => {
+                        setDiss(false);
+
+                    }} type='submit' className='py-[15px] px-[50px] bg-black text-white text-[18px] font-[500] rounded-[8px] cursor-pointer'>Edit</button> : <button onClick={() => {
+                        setDiss(true);
+                    }} type='button' className='py-[15px] px-[50px] bg-black text-white text-[18px] font-[500] rounded-[8px] cursor-pointer'>Done</button>}
                 </div>
             </div>
-            <form onSubmit={(e) => { profileInf(e) }} className=' grid grid-cols-2 gap-[40px]'>
+
+            <div className=' grid grid-cols-2 gap-[40px]'>
                 <div>
                     <p className=' text-[20px] font-[600] mt-5'>Full Name</p>
-                    <input disabled type="text" placeholder='Full name' className=' bg-[#F9F9F9] w-full outline-none p-[20px] rounded-2xl text-[20px] mt-[10px]' value={fullName} onChange={(e) => setFullName(e.target.value)} />
+                    <input defaultValue={uFullName} type="text" disabled={isDiss ? true : false} placeholder='Full name' className=' bg-[#F9F9F9] w-full outline-none p-[20px] rounded-2xl text-[20px] mt-[10px]' onChange={(e) => setFullName(e.target.value)} />
                 </div>
                 <div>
                     <p className=' text-[20px] font-[600] mt-5'>Gender</p>
-                    <select name="" id="" className=' text-[20px] bg-[#F9F9F9]  w-full outline-none rounded-2xl p-[20px]  mt-[10px]' value={gender} onChange={(e) => setGender(e.target.value)}>
-                        <option value="" >Woman</option>
-                        <option value="">Man</option>
-                        <option value="">Others</option>
+                    <select
+                        disabled={isDiss ? true : false}
+                        value={gender}
+                        onChange={(e) => setGender(e.target.value)}
+                        className=' text-[20px] bg-[#F9F9F9] w-full outline-none rounded-2xl p-[20px] mt-[10px]'
+                        defaultValue={savedEmail2}
+                    >
+                        <option value="">Select Gender</option>
+                        <option value="woman">Woman</option>
+                        <option value="man">Man</option>
+                        <option value="other">Others</option>
                     </select>
                 </div>
                 <div>
                     <p className=' text-[20px] font-[600] mt-5'>Language</p>
-                    <select name="" id="" className=' text-[20px] bg-[#F9F9F9]  w-full outline-none rounded-2xl p-[20px]  mt-[10px]  ' value={language} onChange={(e) => setLanguage(e.target.value)} >
-                        <option value="" >English</option>
-                        <option value="">Russian</option>
-                        <option value="">Uzbek</option>
+                    <select
+                        disabled={isDiss ? true : false}
+                        value={language}
+                        onChange={(e) => setLanguage(e.target.value)}
+                        className=' text-[20px] bg-[#F9F9F9] w-full outline-none rounded-2xl p-[20px] mt-[10px]'
+                        defaultValue={savedEmail3}
+                    >
+                        <option value="">Select Language</option>
+                        <option value="english">English</option>
+                        <option value="russian">Russian</option>
+                        <option value="uzbek">Uzbek</option>
                     </select>
                 </div>
                 <div>
                     <p className=' text-[20px] font-[600] mt-5'>Nick Name</p>
-                    <input type="text" placeholder='Nick Name' className=' bg-[#F9F9F9] w-full outline-none p-[20px] rounded-2xl text-[20px] mt-[10px]' value={nickName} onChange={(e) => setNickName(e.target.value)} />
+                    <input type="text" disabled={isDiss ? true : false} placeholder='Nick Name' className=' bg-[#F9F9F9] w-full outline-none p-[20px] rounded-2xl text-[20px] mt-[10px]' onChange={(e) => setNickName(e.target.value)} defaultValue={savedEmail4} />
                 </div>
                 <div>
                     <p className=' text-[20px] font-[600] mt-5'>Country</p>
-                    <select name="" id="" className=' text-[20px] bg-[#F9F9F9]  w-full outline-none rounded-2xl p-[20px]  mt-[10px]' value={country} onChange={(e) => setCountry(e.target.value)}>
-                        <option value="" >Usa</option>
-                        <option value="">Uzbekistan </option>
-                        <option value="">Russia</option>
+                    <select
+                        disabled={isDiss ? true : false}
+                        value={country}
+                        onChange={(e) => setCountry(e.target.value)}
+                        className=' text-[20px] bg-[#F9F9F9] w-full outline-none rounded-2xl p-[20px] mt-[10px]'
+                        defaultValue={savedEmail5}
+                    >
+                        <option value="">Select Country</option>
+                        <option value="usa">USA</option>
+                        <option value="uzbekistan">Uzbekistan</option>
+                        <option value="russia">Russia</option>
                     </select>
                 </div>
                 <div>
                     <p className=' text-[20px] font-[600] mt-5'>Time Zone</p>
-                    <select name="" id="" className=' text-[20px] bg-[#F9F9F9]  w-full outline-none rounded-2xl p-[20px]  mt-[10px]' value={timeZone} onChange={(e) => setTimeZone(e.target.value)} >
-                        <option value="" >UTC+2 </option>
-                        <option value=""> UTC+5</option>
-                        <option value="">UTC+10</option>
+                    <select
+                        disabled={isDiss ? true : false}
+                        value={timeZone}
+                        onChange={(e) => setTimeZone(e.target.value)}
+                        className=' text-[20px] bg-[#F9F9F9] w-full outline-none rounded-2xl p-[20px] mt-[10px]'
+                        defaultValue={savedEmail6}
+                    >
+                        <option value="">Select Time Zone</option>
+                        <option value="UTC+2">UTC+2</option>
+                        <option value="UTC+5">UTC+5</option>
+                        <option value="UTC+10">UTC+10</option>
                     </select>
                 </div>
-            </form>
-
-
+            </div>
             <div>
                 <p className=' text-[20px] font-[600] mt-5'>My email Address</p>
                 <div className=' flex gap-[20px] mt-[20px]'>
@@ -92,7 +141,7 @@ const Profile = () => {
 
                 </div>
             </div>
-        </div>
+        </form>
     );
 }
 

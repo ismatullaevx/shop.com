@@ -99,11 +99,11 @@ export default function TopSelling({ search }) {
         <div>
             <h1 className=' text-[48px] font-[900] text-center py-[60px] '>TOP SEELING</h1>
             {filteredProducts.length <= 0 ? <p className='text-xl text-center text-red-600 my-10'>Products not found</p> :
-                <div className=' grid grid-cols-4 py-[20px] px-[120px] '>
+                <div className='grid grid-cols-4 gap-5  px-[120px] items-center justify-between '>
                     {filteredProducts.slice(0, 4).map((item) => (
                         <div key={item.id} className=''>
-                            <img src={item.img} alt="" className=' rounded-[20px] w-[400px]' />
-                            <p className=' text-[27px] font-bold mt-2'>{item.txt}</p>
+                            <img src={item.img} alt="" className=' rounded-[20px] w-[400px] h-[400px]'  />
+                            <p className=' text-[20px] font-bold mt-2'>{item.txt}</p>
                             <div className=' flex items-center gap-2'>
                                 <StarRating />
                             </div>

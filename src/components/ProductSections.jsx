@@ -9,14 +9,13 @@ import star2 from '../assets/icons/star3.png'
 import { NavLink, useNavigate } from 'react-router'
 import { StarRating } from './star' // Убедись, что путь к StarRating правильный
 import CalculatedDiscount from './CalculatedDiscount'
+import { useKeenSlider } from 'keen-slider/react'
+
 
 export default function ProductSections({ search }) {
 
 
     const navigate = useNavigate()
-
-
-
     const products = [
         {
             id: 1,
@@ -95,6 +94,15 @@ export default function ProductSections({ search }) {
             icon2: star2,
             discount: 15
         },
+        {
+            id: 9,
+            img: ornShirt,
+            txt: "SLEEVE STRIPED T-SHIRT",
+            cost: 130,
+            icon: star,
+            icon2: star2,
+            discount: 15
+        },
     ]
 
     const filteredProducts = products.filter(product =>
@@ -109,15 +117,24 @@ export default function ProductSections({ search }) {
     const handleOpen = (id) => {
         navigate(`/product/${id}`, { state: products });
     };
+
+    const [sliderRef] = useKeenSlider({
+        loop: true,
+        mode: "free-snap",
+        slides: {
+            perView: 2 ,
+            spacing: 10,
+        },
+    })
     return (
         <div>
             <h1 className=' text-[48px] font-[900] text-center py-[60px]'>NEW ARRIVALS</h1>
-            {filteredProducts.length <= 0 ? <p className='text-xl text-center text-red-600 my-10'>Products not found</p> : <div className=' grid grid-cols-4 py-[20px] px-[120px] '>
-                {filteredProducts.slice(0, 4).map((item) => (
-                    <button onClick={() => handleOpen(item.id)} key={item.id} className=''>
-                        <img src={item.img} alt="" className=' rounded-[20px] w-[400px]' />
+            {filteredProducts.length <= 0 ? <p className='text-xl text-center text-red-600 my-10'>Products not found</p> : <div ref={sliderRef} className=' keen-slider grid grid-cols-1 lg:grid-cols-4  lg:px-[120px] lg:items-center lg:justify-between '>
+                {filteredProducts.slice(0, 5).map((item) => (
+                    <button onClick={() => handleOpen(item.id)} key={item.id} className='keen-slider__slide number-slide1 '>
+                        <img src={item.img} alt="" className='lg:w-[400px] lg:h-[400px] rounded-2xl ' />
 
-                        <p className='text-left text-[27px] font-bold mt-2'>{item.txt}</p>
+                        <p className=' text-left text-[20px] font-bold mt-2'>{item.txt}</p>
                         <div className='flex items-center gap-2'>
                             <StarRating product={item} />
                         </div>
