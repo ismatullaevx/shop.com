@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import profile from '../assets/imgs/profile.png'
 import { MdEmail } from 'react-icons/md';
+import { PiPen, PiPenBold, PiPencil, PiPencilCircle, PiPenDuotone } from 'react-icons/pi';
+import { TiKey, TiTicket } from 'react-icons/ti';
+import { CgCheck } from 'react-icons/cg';
 const Profile = () => {
     const uName = localStorage.getItem("username");
     const savedEmail = localStorage.getItem("userEmail");
@@ -29,7 +32,7 @@ const Profile = () => {
 
         if (uFullName === fullName && savedEmail2 === gender && savedEmail3 === language && savedEmail4 === nickName && savedEmail5 === country && savedEmail6 === timeZone) {
             alert("O'zgardi")
-        }   
+        }
         else {
             alert('false')
         }
@@ -37,18 +40,27 @@ const Profile = () => {
     console.log();
 
     return (
-        <form onSubmit={(e) => { profileInf(e) }} className=' w-full bg-white px-[120px]'>
+        <form onSubmit={(e) => { profileInf(e) }} className=' w-full bg-white px-[20px] lg:px-[120px]'>
             <div className=' flex items-center justify-between'>
                 <div className=' flex items-center  gap-[20px]'>
                     <div>
-                        <img src={profile} alt="" className='w-[100px] h-[100px] rounded-[60px]' />
+                        <img src={profile} alt="" className='w-[50px] h-[50px] lg:w-[100px] lg:h-[100px] rounded-[60px]' />
                     </div>
                     <div>
                         <h1 className=' font-[500] text-[22px]'>{uName}</h1>
                         <p className=' font-[400] text-[18px]'>{savedEmail}</p>
                     </div>
                 </div>
-                <div>
+                <div className='lg:hidden block'>
+                    {isDiss ? <PiPencil className=' text-[25px]' onClick={() => {
+                        setDiss(false);
+                    }} /> : <CgCheck className=' text-[35px]' onClick={() => {
+                        setDiss(true)
+                    }} />
+                    }
+                </div>
+
+                <div className=' lg:block hidden'>
                     {isDiss ? <button onClick={() => {
                         setDiss(false);
 
@@ -58,7 +70,7 @@ const Profile = () => {
                 </div>
             </div>
 
-            <div className=' grid grid-cols-2 gap-[40px]'>
+            <div className=' grid grid-cols-1 lg:grid-cols-2 gap-[40px]'>
                 <div>
                     <p className=' text-[20px] font-[600] mt-5'>Full Name</p>
                     <input defaultValue={uFullName} type="text" disabled={isDiss ? true : false} placeholder='Full name' className=' bg-[#F9F9F9] w-full outline-none p-[20px] rounded-2xl text-[20px] mt-[10px]' onChange={(e) => setFullName(e.target.value)} />

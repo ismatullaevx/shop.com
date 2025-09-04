@@ -59,7 +59,7 @@
 @media screen and (max-width: 430px) {
     .bgImg {
         background-image: url(./assets/imgs/casual2.png);
-        width: 350px;
+        width: 100%;
         background-repeat: no-repeat;
         background-size: cover;
         height: 200px;
@@ -71,7 +71,7 @@
     }
     .bgImg2 {
     background-image: url(./assets/imgs/formal2.png);
-    width: 350px;
+    width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     height: 200px;
@@ -83,7 +83,7 @@
 
 .bgImg3 {
     background-image: url(./assets/imgs/party2.png);
-    width: 350px;
+    width:  100%;
     background-repeat: no-repeat;
     background-size: cover;
     height: 200px;
@@ -95,7 +95,7 @@
 
 .bgImg4 {
     background-image: url(./assets/imgs/gym2.png);
-    width: 350px;
+    width:  100%;
     background-repeat: no-repeat;
     background-size: cover;
     height: 200px;

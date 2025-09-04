@@ -78,27 +78,30 @@ export default function Reviews() {
     const visibleltems = isSlice ? revierws : revierws.slice(0, 6);
     return (
         <div>
-            <div className=' flex items-center justify-between mt-[20px]'>
-                <div className=' flex items-center gap-[20px]'>
-                    <h1 className=' text-[24px] font-bold'>All Reviews</h1>
+            <div className=' flex items-center justify-between gap-[10px] mt-[20px]'>
+                <div className=' flex items-center lg:gap-[20px]'>
+                    <h1 className=' lg:text-[24px] font-bold'>All Reviews</h1>
                     <h1>(451)</h1>
                 </div>
-                <div className=' flex items-center justify-between gap-[40px]'>
+                <div className=' flex items-center justify-between gap-[10px] lg:gap-[40px]'>
 
                     <button className=" text-black/60 text-[16px]  rounded-[60px] bg-[#F0F0F0] p-[10px]">
                         <BiFilter className=' text-[30px] text-black' />
                     </button>
-                    <button className=" text-black/60 text-[16px]  flex w-full">
+                    <button className=" text-black/60 text-[16px] hidden lg:flex w-full">
                         <CreatableSelect isClearable options={colourOptions} />;
                     </button>
 
-                    <button className=" text-white text-center  bg-black rounded-[62px] font-medium pl-[74px] pr-[74px] pt-[16px] pb-[16px] w-full" > Write a Review</button>
+                    <button className=" text-white text-center  bg-black rounded-[62px] lg:font-medium pl-[20px] pr-[20px] lg:pl-[74px] lg:pr-[74px] pt-[16px] pb-[16px] w-full" > Write a Review</button>
                 </div>
 
 
 
             </div>
-            <div className=' grid grid-cols-2 gap-[20px] mt-[40px]'>
+
+
+
+            <div className=' grid grid-cols-1 lg:grid-cols-2 gap-[20px] mt-[40px]'>
                 {visibleltems.map((item) => (
                     <div key={item.id}>
                         <div className=' border-1 border-black/10 p-[30px] w-full rounded-[20px]'>
@@ -110,7 +113,7 @@ export default function Reviews() {
                                 <h1 className=' text-[20px] font-bold mt-[10px]'>{item.user}</h1>
                                 <BiCheck className=' text-white bg-[#01AB31] rounded-[20px] w-[24px] h-[24px] p-[1px]' />
                             </div>
-                            <p className=' w-[72%]  text-black/60 mt-[10px] text-[16px] '>
+                            <p className=' lg:w-[72%]  text-black/60 mt-[10px] text-[16px] '>
                                 {item.about}
                             </p>
                             <p className=' text-black/60 text-[16px] font-medium mt-[20px]'>{item.data}</p>

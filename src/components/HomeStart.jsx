@@ -66,18 +66,15 @@ export default function HomeStart() {
                     </div>
 
                 </div>
-                <div>
-                    <img src={star} alt="" className=' relative lg:top-65 lg:bottom-10 lg:right-10 lg:left-10 top-30' />
+                <div className=" flex items-center justify-between w-full">
+                    <img src={star} alt="" className=' w-[25px] lg:w-[40px] ' />
+                    <img src={home} alt="" className='w-[280px] lg:w-[700px]' />
+                    <img src={star2} alt="" className='w-[35px] lg:w-[60px]' />
                 </div>
-                <div className='p-[20px] lg:p-[60px] lg:rb-[80px]'>
-                    <img src={home} alt="" className=' lg:w-[700px]' />
-                </div>
-                <div>
-                    <img src={star2} alt="" className=' relative lg:top-20 lg:bottom-10 lg:left-0 left-75 bottom-100' />
-                </div>
+
+
             </div>
             <div className=' bg-black w-full  flex items-center justify-center gap-[10px] lg:justify-between px-[150px] py-[20px] lg:gap-[20px] lg:py-[40px] lg:px-[120px] text-white'>
-
                 <img src={versace} alt="" />
                 <img src={zara} alt="" />
                 <img src={gucci} alt="" />

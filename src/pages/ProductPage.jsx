@@ -73,12 +73,12 @@ export default function ProductPage() {
 
     }
     return (
-        <div className="px-[120px]">
+        <div className="px-[20px] lg:px-[120px]">
             <div className="flex flex-col lg:flex-row pt-10 overflow-hidden">
                 {/* Left Half: Thumbnails + Slider */}
                 <div className="flex flex-col md:flex-row  lg:w-1/2 w-full">
                     {/* Thumbnails */}
-                    <div className="flex md:flex-col gap-2 md:gap-3">
+                    <div className=" hidden lg:flex md:flex-col gap-2 md:gap-3">
                         {images.map((img, idx) => (
                             <img
                                 key={idx}
@@ -127,12 +127,12 @@ export default function ProductPage() {
                 </div>
                 {/* Right Half: Product Details */}
                 <div className="`">
-                    <h1 className=" text-[40px] font-bold mt-[10px]">{product.txt}</h1>
+                    <h1 className="text-[25px] lg:text-[40px] font-bold mt-[10px]">{product.txt}</h1>
                     <StarRating />
                     <CalculatedDiscount prise={product.cost} discount={20} />
 
 
-                    <h1 className=" text-[16px]  mt-[10px]  w-[62%]">
+                    <h1 className=" lg:text-[16px]  mt-[10px]  lg:w-[62%]">
                         {product.descrition}
                     </h1>
                     <button className=" mt-[20px] border-1 w-full border-black/10 border-l-0 border-r-0 px-[0px] py-[20px]">
@@ -168,15 +168,15 @@ export default function ProductPage() {
                             <h1>{number}</h1>
                             <button onClick={plusBtn}> <BiPlus /> </button>
                         </button>
-                        <button onClick={() => handleSendDate(products)} className=" text-white bg-black rounded-[62px] font-medium pl-[54px] pr-[54px] pt-[16px] pb-[16px] w-full" > Add to Cart</button>
+                        <button onClick={() => handleSendDate(products)} className=" text-white bg-black rounded-[62px] font-medium lg:pl-[54px] lg:pr-[54px] pt-[16px] pb-[16px] w-full" > Add to Cart</button>
                     </div>
 
                 </div>
             </div>
             <div className=" flex items-center justify-between  mt-[60px]">
-                <button style={{ borderBottom: activeTab === "ProductDetails" ? "2px solid black" : "", }} className="text-[22px]  w-full border-b-1 border-black/10 " onClick={() => setActiveTab("ProductDetails")}>Product Details</button>
-                <button style={{ borderBottom: activeTab === "Rating&Reviews" ? "2px solid black" : "", }} className="text-[22px] w-full border-b-1 border-black/10" onClick={() => setActiveTab("Rating&Reviews")}>Rating & Reviews</button>
-                <button style={{ borderBottom: activeTab === "FAQs" ? "2px solid black" : "", }} className="text-[22px] w-full  border-b-1 border-black/10" onClick={() => setActiveTab("FAQs")}>FAQs</button>
+                <button style={{ borderBottom: activeTab === "ProductDetails" ? "2px solid black" : "", }} className="lg:text-[22px]  w-full border-b-1 border-black/10 " onClick={() => setActiveTab("ProductDetails")}>Product Details</button>
+                <button style={{ borderBottom: activeTab === "Rating&Reviews" ? "2px solid black" : "", }} className="lg:text-[22px] w-full border-b-1 border-black/10" onClick={() => setActiveTab("Rating&Reviews")}>Rating & Reviews</button>
+                <button style={{ borderBottom: activeTab === "FAQs" ? "2px solid black" : "", }} className="lg:text-[22px] w-full  border-b-1 border-black/10" onClick={() => setActiveTab("FAQs")}>FAQs</button>
             </div>
             <div className=" ">
                 {renderContent()}
