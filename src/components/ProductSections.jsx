@@ -5,7 +5,7 @@ import Tshirt from '../assets/imgs/Tshirt.png'
 import shirt from '../assets/imgs/shirt.png'
 import ornShirt from '../assets/imgs/orangeShirt.png'
 import star from '../assets/icons/star.png'
-import star2 from '../assets/icons/star3.png'
+import star2 from '../assets/icons/Star3.png'
 import { NavLink, useNavigate } from 'react-router'
 import { StarRating } from './star' // Убедись, что путь к StarRating правильный
 import CalculatedDiscount from './CalculatedDiscount'
