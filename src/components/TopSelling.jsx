@@ -7,6 +7,7 @@ import star2 from '../assets/icons/star3.png'
 import { useNavigate } from 'react-router'
 import { StarRating } from './star'
 import CalculatedDiscount from './CalculatedDiscount'
+import { useKeenSlider } from 'keen-slider/react'
 export default function TopSelling({ search }) {
     const navigate = useNavigate()
     const products = [
@@ -95,30 +96,44 @@ export default function TopSelling({ search }) {
         console.log("press");
 
     }
+    const [sliderRef] = useKeenSlider({
+        loop: true,
+        mode: "free-snap",
+        slides: {
+            perView: 1.75,
+            spacing: 15,
+        },
+        breakpoints: {
+            "(min-width : 1024px)": {
+                slides: {
+                    perView: 4,
+                    spacing: 15,
+                },
+            }
+        }
+    })
     return (
-        <div>
-            <h1 className=' text-[48px] font-[900] text-center py-[60px] '>TOP SEELING</h1>
-            {filteredProducts.length <= 0 ? <p className='text-xl text-center text-red-600 my-10'>Products not found</p> :
-                <div className='grid grid-cols-4 gap-5  px-[120px] items-center justify-between '>
-                    {filteredProducts.slice(0, 4).map((item) => (
-                        <div key={item.id} className=''>
-                            <img src={item.img} alt="" className=' rounded-[20px] w-[400px] h-[400px]'  />
-                            <p className=' text-[20px] font-bold mt-2'>{item.txt}</p>
-                            <div className=' flex items-center gap-2'>
-                                <StarRating />
-                            </div>
-                            <CalculatedDiscount prise={item.cost} discount={item.discount} />
+          <div className= 'lg:py-0 py-[40px] lg:px-[120px] '>
+            <h1 className=' text-[48px] font-[900] text-center py-[20px] lg:py-[60px]'>NEW ARRIVALS</h1>
+            {filteredProducts.length <= 0 ? <p className='text-xl text-center text-red-600 my-10'>Products not found</p> : <div ref={sliderRef} className='keen-slider grid grid-cols-1 lg:grid-cols-4  lg:items-center lg:justify-between '>
+                {filteredProducts.slice(0, 5).map((item) => (
+                    <button onClick={() => handleSendDate(item.id)} key={item.id} className='keen-slider__slide number-slide1  lg:py-[120px]  text-[10px]'>
+                        <img src={item.img} alt="" className='lg:w-[400px] rounded-2xl ' />
 
+                        <p className=' text-[15px] text-left lg:text-[20px] font-bold mt-2'>{item.txt}</p>
+                        <div className='flex items-center gap-2'>
+                            <StarRating product={item} />
                         </div>
-                    ))}
-                </div>}
+                        <CalculatedDiscount prise={item.cost} discount={item.discount}  />
+
+                    </button>
+                ))}
+            </div>}
             <div className=' flex items-center justify-center mt-[20px]'>
-                <button onClick={() => handleSendDate(products)} className=' border-1 border-black/10 pb-[16px] pt-[16px] pl-[54px] pr-[54px] text-[16px] font-medium rounded-[62px]'>
+                <button onClick={() => handleSendDate(products)} className=' border-1 border-black/10 pb-[16px] pt-[16px] pl-[54px] pr-[54px] text-[16px] font-medium rounded-[62px] cursor-pointer'>
                     View All
                 </button>
             </div>
-
-
         </div>
     )
 }

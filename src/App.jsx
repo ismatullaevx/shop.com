@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, Outlet,  } from 'react-router'
+import { BrowserRouter, Route, Routes, Outlet, } from 'react-router'
 import './App.css'
 import Home from './pages/Home'
 import Shop from './components/Shop'

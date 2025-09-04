@@ -1,7 +1,7 @@
 // ProductSections.jsx (этот файл не меняется, так как передача пропсов верна)
 
 import Tshirt from '../assets/imgs/Tshirt.png'
-import jeans from '../assets/imgs/jeans.png'
+// import jeans from '../assets/imgs/jeans.png'
 import shirt from '../assets/imgs/shirt.png'
 import ornShirt from '../assets/imgs/orangeShirt.png'
 import star from '../assets/icons/star.png'
@@ -33,9 +33,9 @@ export default function ProductSections({ search }) {
         },
         {
             id: 2,
-            img: jeans,
+            img: ornShirt,
             txt: "SKINNY FIT JEANS",
-            cost: 240,
+            cost: 120,
             icon: star,
             icon2: star2,
             discount: 15
@@ -122,19 +122,27 @@ export default function ProductSections({ search }) {
         loop: true,
         mode: "free-snap",
         slides: {
-            perView: 2 ,
-            spacing: 10,
+            perView: 1.75,
+            spacing: 15,
         },
+        breakpoints: {
+            "(min-width : 1024px)": {
+                slides: {
+                    perView: 4,
+                    spacing: 15,
+                },
+            }
+        }
     })
     return (
-        <div>
-            <h1 className=' text-[48px] font-[900] text-center py-[60px]'>NEW ARRIVALS</h1>
-            {filteredProducts.length <= 0 ? <p className='text-xl text-center text-red-600 my-10'>Products not found</p> : <div ref={sliderRef} className=' keen-slider grid grid-cols-1 lg:grid-cols-4  lg:px-[120px] lg:items-center lg:justify-between '>
+        <div className=' lg:py-0 py-[20px]  lg:px-[120px] '>
+            <h1 className=' text-[48px] font-[900] text-center  lg:py-[60px]'>NEW ARRIVALS</h1>
+            {filteredProducts.length <= 0 ? <p className='text-xl text-center text-red-600 my-10'>Products not found</p> : <div ref={sliderRef} className='keen-slider grid grid-cols-1 lg:grid-cols-4  lg:items-center lg:justify-between '>
                 {filteredProducts.slice(0, 5).map((item) => (
-                    <button onClick={() => handleOpen(item.id)} key={item.id} className='keen-slider__slide number-slide1 '>
-                        <img src={item.img} alt="" className='lg:w-[400px] lg:h-[400px] rounded-2xl ' />
+                    <button onClick={() => handleOpen(item.id)} key={item.id} className='keen-slider__slide number-slide1 lg:py-[120px] py-[40px]  text-[10px]'>
+                        <img src={item.img} alt="" className='lg:w-[400px] rounded-2xl ' />
 
-                        <p className=' text-left text-[20px] font-bold mt-2'>{item.txt}</p>
+                        <p className=' text-[15px] text-left lg:text-[20px] font-bold mt-2'>{item.txt}</p>
                         <div className='flex items-center gap-2'>
                             <StarRating product={item} />
                         </div>

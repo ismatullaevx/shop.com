@@ -8,12 +8,20 @@ const Customer = () => {
         loop: true,
         mode: "free-snap",
         slides: {
-            perView: 3,
+            perView: 1,
             spacing: 15,
         },
+         breakpoints: {
+            "(min-width : 1024px)": {
+                slides: {
+                    perView: 3,
+                    spacing: 15,
+                },
+            }
+        }
     })
     return (
-        <div className=' px-[120px]'>
+        <div className='px-[20px] lg:px-[120px]'>
 
             <h1 className=' text-[48px] font-bold mt-[20px]'>OUR HAPPY CUSTOMERS</h1>
             <div ref={sliderRef} className="keen-slider">

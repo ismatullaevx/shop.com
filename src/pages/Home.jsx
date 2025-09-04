@@ -1,9 +1,10 @@
 
 import Customer from "../components/Customer";
-// import DressStyle from "../components/DressStyle";
+import DressStyle from "../components/DressStyle";
 import HomeStart from "../components/HomeStart";
 import ProductSections from "../components/ProductSections";
 import TopSelling from "../components/TopSelling";
+import View from "../components/View";
 
 
 
@@ -14,10 +15,9 @@ const Home = ({ search }) => {
 
             <HomeStart />
             <ProductSections search={search} />
-            {/* <TopSelling search={search} /> */}
-            {/* <DressStyle /> */}
-            {/* <Customer /> */}
-
+            <TopSelling search={search} />
+            <DressStyle />
+            <Customer />
         </div>
     );
 }

@@ -47,11 +47,61 @@
     padding: 40px;
     margin-top: 20px;
 }
+
 /* 
 .style-module_emptyIcons__Bg-FZ {
     display: flex !important;
 } */
- .style-module_simpleStarRating__nWUxf{
-     display: flex !important;
- }
- 
+.style-module_simpleStarRating__nWUxf {
+    display: flex !important;
+}
+
+@media screen and (max-width: 430px) {
+    .bgImg {
+        background-image: url(./assets/imgs/casual2.png);
+        width: 350px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 200px;
+        background-image: url;
+        border-radius: 20px;
+        padding: 20px;
+        margin-top: 40px;
+
+    }
+    .bgImg2 {
+    background-image: url(./assets/imgs/formal2.png);
+    width: 350px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    background-image: url;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.bgImg3 {
+    background-image: url(./assets/imgs/party2.png);
+    width: 350px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    background-image: url;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.bgImg4 {
+    background-image: url(./assets/imgs/gym2.png);
+    width: 350px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    background-image: url;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+}
