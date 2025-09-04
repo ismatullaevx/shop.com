@@ -9,7 +9,7 @@ import Header from './components/Header'
 import Detail from './components/Detail'
 import Basket from './components/Basket'
 import Email from './components/Email'
-import Login from './components/login'
+import Login from './components/Login'
 import Footer from './components/Footer'
 import Profile from './pages/Profile'
 
