@@ -13,7 +13,7 @@ const Footer = () => {
             <div className='lg:px-[120px] px-[20px]'>
                 <div className=' bg-black block lg:flex lg:items-center lg:justify-center mt-[100px] lg:p-[50px] rounded-[20px] p-[20px] '>
                     <div className=' flex w-full'>
-                        <h1 className=' text-[31px] lg:text-[40px] text-white font-[900] '>STAY UPTO DATE ABOUT <br />  OUR LATEST OFFERS</h1>
+                        <h1 className=' text-[38px] leading-[38px] lg:text-[40px] text-white font-[900] '>STAY UPTO DATE ABOUT   OUR LATEST OFFERS</h1>
                     </div>
 
                     <button className=' w-full'>

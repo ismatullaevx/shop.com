@@ -23,8 +23,8 @@ const Customer = () => {
     return (
         <div className='px-[20px] lg:px-[120px]'>
 
-            <h1 className=' text-[30px] lg:text-[48px] font-bold mt-[20px]'>OUR HAPPY CUSTOMERS</h1>
-            <div ref={sliderRef} className="keen-slider">
+            <h1 className=' text-[38px] leading-[38px] lg:text-[48px] font-[800] mt-[20px]'>OUR HAPPY CUSTOMERS</h1>
+            <div ref={sliderRef} className="keen-slider mt-[20px]">
                 <div className="keen-slider__slide number-slide1   border-1 border-black/10 p-[30px] w-full rounded-[20px]">
                     <div className=' flex gap-2'>
                         <StarRating />
@@ -33,7 +33,7 @@ const Customer = () => {
                         <h1 className=' text-[20px] font-bold mt-[10px]'>Sarah M.</h1>
                         <BiCheck className=' text-white bg-[#01AB31] rounded-[20px] p-[1px]' />
                     </div>
-                    <p className=' w-[72%] mt-[10px]'>
+                    <p className=' lg:w-[72%] mt-[10px]'>
                         "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”
                     </p>
                 </div>
@@ -45,7 +45,7 @@ const Customer = () => {
                         <h1 className=' text-[20px] font-bold mt-[10px]'>Sarah M.</h1>
                         <BiCheck className=' text-white bg-[#01AB31] rounded-[20px] p-[1px]' />
                     </div>
-                    <p className=' w-[72%] mt-[10px]'>
+                    <p className=' lg:w-[72%] mt-[10px]'>
                         "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”
                     </p>
                 </div>
@@ -57,7 +57,7 @@ const Customer = () => {
                         <h1 className=' text-[20px] font-bold mt-[10px]'>Sarah M.</h1>
                         <BiCheck className=' text-white bg-[#01AB31] rounded-[20px] p-[1px]' />
                     </div>
-                    <p className=' w-[72%] mt-[10px]'>
+                    <p className=' lg:w-[72%] mt-[10px]'>
                         "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”
                     </p>
                 </div>
@@ -69,7 +69,7 @@ const Customer = () => {
                         <h1 className=' text-[20px] font-bold mt-[10px]'>Sarah M.</h1>
                         <BiCheck className=' text-white bg-[#01AB31] rounded-[20px] p-[1px]' />
                     </div>
-                    <p className=' w-[72%] mt-[10px]'>
+                    <p className=' lg:w-[72%] mt-[10px]'>
                         "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”
                     </p>
                 </div>
@@ -81,7 +81,7 @@ const Customer = () => {
                         <h1 className=' text-[20px] font-bold mt-[10px]'>Sarah M.</h1>
                         <BiCheck className=' text-white bg-[#01AB31] rounded-[20px] p-[1px]' />
                     </div>
-                    <p className=' w-[72%] mt-[10px]'>
+                    <p className=' lg:w-[72%] mt-[10px]'>
                         "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”
                     </p>
                 </div>
@@ -93,7 +93,7 @@ const Customer = () => {
                         <h1 className=' text-[20px] font-bold mt-[10px]'>Sarah M.</h1>
                         <BiCheck className=' text-white bg-[#01AB31] rounded-[20px] p-[1px]' />
                     </div>
-                    <p className=' w-[72%] mt-[10px]'>
+                    <p className=' lg:w-[72%] mt-[10px]'>
                         "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”
                     </p>
                 </div>

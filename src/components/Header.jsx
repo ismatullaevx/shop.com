@@ -61,7 +61,9 @@ export default function Header({ search, setSearch }) {
                     </NavLink>
 
 
-                    <BsCart className='text-2xl font-[900]' />
+                    <NavLink to={"/basket"}>
+                        <BsCart className='text-2xl font-[900]' />
+                    </NavLink>
 
                     <BiLogIn onClick={() => logout()} className='text-2xl font-[900] hover:text-red-600 cursor-pointer' />
                 </div>

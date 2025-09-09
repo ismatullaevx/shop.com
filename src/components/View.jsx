@@ -18,19 +18,25 @@ const View = () => {
     //         )
     //     }
     // }
+    function formatText(text, maxLength = 18) {
+        if (typeof text !== "string") return "";
+        return text.length > maxLength
+            ? text.slice(0, maxLength) + "..."
+            : text;
+    }
     return (
         <div>
-            <h1 className='text-[38px] lg:text-[48px] font-[900] text-center py-[60px]'>ALL PRODUCT</h1>
+            <h1 className='text-[38px] lg:text-[48px] font-[900] text-center py-[20px]'>ALL PRODUCT</h1>
             <div className=' grid grid-cols-2 lg:grid-cols-4 gap-5 px-[20px]  lg:px-[120px] items-center justify-between '>
                 {products.map((item) => (
                     <div key={item.id} className=''>
                         <img src={item.img} alt="" className=' rounded-[20px] lg:w-[400px] ' />
                         <p className='text-left text-[12px] lg:text-[20px] font-bold mt-2'>
-                            {item.txt}
+                            {formatText(item.txt)}
                         </p>
 
 
-                        <div className=' flex items-center gap-2'>
+                        <div className=''>
                             <StarRating />
                         </div>
                         <CalculatedDiscount prise={item.cost} discount={item.discount} />

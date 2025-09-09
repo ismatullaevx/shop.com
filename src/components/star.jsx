@@ -1,20 +1,15 @@
-// StarRating.jsx
 import React, { useState } from 'react'
 
-export function StarRating({ product }) {
+export function StarRating() {
     const [rating, setRating] = useState(0)
-    const [hover, setHover] = useState(0);
-
+    const [hover, setHover] = useState(0)
 
     return (
-        <div className="flex flex-row space-x-1 items-center">
+        <div className="flex flex-row items-center space-x-1 sm:space-x-2">
             {[1, 2, 3, 4, 5].map((star) => (
                 <svg
                     key={star}
-                    onClick={() => {
-                        setRating(star);
-                        console.log(`Id: ${product?.id || 'Unknown Product'}, Product: ${product?.txt || 'Unknown Product'}, Rating: ${star}`)
-                    }}
+                    onClick={() => setRating(star)}
                     onMouseEnter={() => setHover(star)}
                     onMouseLeave={() => setHover(0)}
                     xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +17,7 @@ export function StarRating({ product }) {
                     viewBox="0 0 24 24"
                     stroke="#facc15"
                     strokeWidth={2}
-                    className="w-6 h-6 cursor-pointer transition duration-150 ease-in-out"
+                    className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 cursor-pointer transition duration-150 ease-in-out"
                 >
                     <path
                         strokeLinecap="round"
@@ -31,7 +26,6 @@ export function StarRating({ product }) {
                     />
                 </svg>
             ))}
-            <span className="ml-2 text-sm text-gray-700">{rating} / 5</span>
         </div>
     )
 }

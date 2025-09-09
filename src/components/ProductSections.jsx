@@ -134,20 +134,26 @@ export default function ProductSections({ search }) {
             }
         }
     })
+    function formatText(text, maxLength = 20) {
+        if (typeof text !== "string") return "";
+        return text.length > maxLength
+            ? text.slice(0, maxLength) + "..."
+            : text;
+    }
     return (
-        <div className=' lg:py-0 py-[20px]  lg:px-[120px] '>
-            <h1 className=' text-[48px] font-[900] text-center  lg:py-[60px]'>NEW ARRIVALS</h1>
+        <div className=' lg:py-0 py-[0px] px-[20px] lg:px-[120px] '>
+            <h1 className=' text-[32px] lg:text-[48px] font-[900] text-center py-[20px] lg:py-[60px]'>NEW ARRIVALS</h1>
             {filteredProducts.length <= 0 ? <p className='text-xl text-center text-red-600 my-10'>Products not found</p> : <div ref={sliderRef} className='keen-slider grid grid-cols-1 lg:grid-cols-4  lg:items-center lg:justify-between '>
                 {filteredProducts.slice(0, 5).map((item) => (
-                    <button onClick={() => handleOpen(item.id)} key={item.id} className='keen-slider__slide number-slide1 lg:py-[120px] py-[40px]  text-[10px]'>
+                    <button onClick={() => handleOpen(item.id)} key={item.id} className='keen-slider__slide number-slide1 lg:py-[0px]   text-[10px]'>
                         <img src={item.img} alt="" className='lg:w-[400px] rounded-2xl ' />
 
-                        <p className=' text-[15px] text-left lg:text-[20px] font-bold mt-2'>{item.txt}</p>
+                        <p className=' text-[15px] text-left lg:text-[20px] font-bold mt-2'>
+                            {formatText(item.txt)}</p>
                         <div className='flex items-center gap-2'>
                             <StarRating product={item} />
                         </div>
-                        <CalculatedDiscount prise={item.cost} discount={item.discount} />
-
+                        <CalculatedDiscount price={item.cost} discount={item.discount} />
                     </button>
                 ))}
             </div>}

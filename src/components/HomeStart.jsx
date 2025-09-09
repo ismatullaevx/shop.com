@@ -41,32 +41,32 @@ export default function HomeStart() {
 
             <div className=' bg-[#F0F0F0] w-full block lg:flex lg:justify-center lg:px-[60px] p-[20px]'>
                 <div className='lg:p-[60px]'>
-                    <h1 className='lg:text-[90px] text-[40px] leading-[40px] font-[900] lg:leading-[75px]'>
+                    <h1 className='lg:text-[74px] text-[40px] leading-[40px] font-[900] lg:leading-[75px]'>
                         FIND CLOTHES <br />  THAT MATCHES  <br /> YOUR STYLE
                     </h1>
-                    <p className='text-black/60 lg:w-[70%] mt-5 lg:text-[20px]'>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
+                    <p className='text-black/60 lg:w-[90%]  text-[14px] mt-4 lg:text-[18px]'>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
                     <button className=' bg-black text-white pb-[16px] pt-[16px] lg:w-[300px] w-full pl-[24px] pr-[24px] rounded-[64px] mt-5'>Shop Now</button>
                     <div className=' flex items-center justify-center lg:justify-normal  gap-[80px]  lg:items-center w-full mt-8 '>
                         <div className=''>
-                            <h1 className='text-[50px]  font-bold'>{count}+</h1>
-                            <p className='text-black/60'>International Brands</p>
+                            <h1 className='text-[35px] lg:text-[50px] text-center  font-bold'>{count}+</h1>
+                            <p className='lg:text-[16px] text-[12px] text-center  text-black/60'>International Brands</p>
                         </div>
                         <div>
-                            <h1 className='text-[50px] font-bold'>{count}+</h1>
-                            <p className='text-black/60'>High-Quality Products</p>
+                            <h1 className='text-[35px] lg:text-[50px] text-center font-bold'>{count}+</h1>
+                            <p className= 'lg:text-[16px] text-[12px] text-center  text-black/60'>High-Quality Products</p>
                         </div>
                         <div className=" lg:block hidden ">
-                            <h1 className='text-[50px] font-bold'>{count} +</h1>
-                            <p className='text-black/60'>Happy Customers</p>
+                            <h1 className='lg:text-[50px] font-bold'>{count} +</h1>
+                            <p className='lg:text-[16px] text-[12px] text-center  text-black/60'>Happy Customers</p>
                         </div>
                     </div>
                     <div className=" lg:hidden block text-center ">
-                        <h1 className='text-[50px] font-bold'>{count} +</h1>
-                        <p className='text-black/60'>Happy Customers</p>
+                        <h1 className='text-[35px] lg:text-[50px] text-center font-bold'>{count} +</h1>
+                        <p className='lg:text-[16px] text-[12px] text-center  text-black/60'>Happy Customers</p>
                     </div>
 
                 </div>
-                <div className=" flex items-center justify-between w-full">
+                <div className="mt-[20px] flex items-center justify-between w-full">
                     <img src={star} alt="" className=' w-[25px] lg:w-[40px] ' />
                     <img src={home} alt="" className='w-[280px] lg:w-[700px]' />
                     <img src={star2} alt="" className='w-[35px] lg:w-[60px]' />
